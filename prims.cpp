@@ -150,7 +150,7 @@ void Graph::printList(Node *edges)
 	}
 	
 	// KEEP ITERATING
-    printList(edges->next);
+    	printList(edges->next);
 }
 
 void Graph::prims(char start)
@@ -184,19 +184,19 @@ void Graph::setParents(Node *edges, Node *parent)
 		return setParents(adjacencyList[vertex]->next, adjacencyList[vertex]);	
 	}
     
-    // GET NEIGHBOR
-    int index = CONVERT_CHAR_TO_INDEX(edges->vertex);
+    	// GET NEIGHBOR
+    	int index = CONVERT_CHAR_TO_INDEX(edges->vertex);
     
-    parent->isMST = true;
+    	parent->isMST = true;
     
-    // MODIFY NODE PARENT AND COST OF OUR NEIGHBOR BY THE LOWER EDGE
-    if (edges->cost < adjacencyList[index]->cost && !adjacencyList[index]->isMST) {
-    	adjacencyList[index]->cost = edges->cost;
-    	adjacencyList[index]->parent = parent->vertex;	
+    	// MODIFY NODE PARENT AND COST OF OUR NEIGHBOR BY THE LOWER EDGE
+    	if (edges->cost < adjacencyList[index]->cost && !adjacencyList[index]->isMST) {
+    		adjacencyList[index]->cost = edges->cost;
+    		adjacencyList[index]->parent = parent->vertex;	
 	}
 	
 	// CONTINUE WITH THE NEXT NODE
-    setParents(edges->next, parent);
+    	setParents(edges->next, parent);
 }
 
 void Graph::showMST()
